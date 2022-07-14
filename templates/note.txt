@@ -1,0 +1,149 @@
+﻿======== Tieu chi
+<div class="flex-tieuchi css_flex_baiviet css_baiviet_ngang">
+            	<?=$func->lay_tieuchi($tieuchi,'news',THUMBS.'/55x55x1/');?>
+            </div>
+
+div.flex-tieuchi{
+    margin-top: 20px;
+}
+div.flex-tieuchi .news{
+    width: calc(33.3% - 30px);
+    text-align: center;
+    margin-bottom: 0;
+}
+div.flex-tieuchi .pic-news{
+    background: url(../images/bg-tc.png) no-repeat center;
+    min-height: 118px;
+    padding-top: 31px;
+}
+div.flex-tieuchi .pic-news img{
+    max-width: 50px;
+}
+div.flex-tieuchi .name-news{
+    font-size: 22px;
+    font-family: 'ro-bl';
+    text-transform: uppercase;
+}
+div.flex-tieuchi .name-news:hover{}
+div.flex-tieuchi .info-news{padding:0;}
+
+
+============= css news khac
+div.box-linhvuc .flex-linhvuc{}
+div.box-linhvuc .news{}
+div.box-linhvuc .pic-news{}
+div.box-linhvuc .pic-news img{}
+div.box-linhvuc .news:hover .pic-news img{}
+div.box-linhvuc .info-news{}
+div.box-linhvuc .name-news{}
+div.box-linhvuc .name-news:hover{}
+div.box-linhvuc .desc-news{}
+div.box-linhvuc .time-news{}
+
+=============== css mui ten slick
+div.chay-tintuc .slick-prev:before,div.chay-tintuc .slick-next:before{font-size: 0;}
+div.chay-tintuc .slick-prev,div.chay-tintuc .slick-next{width: 45px;height: 45px;top: 83%;}
+div.chay-tintuc .slick-prev{background: url(../images/sl-1.png) no-repeat center;left: -52px;}
+div.chay-tintuc .slick-next{background: url(../images/sl-2.png) no-repeat center;right: -52px;}
+
+============== css form
+div.box-form{padding: 60px 0 80px 0;background: url(../images/bg-menu.jpg) no-repeat center;background-size: cover;position: relative;}
+div.box-form:before{content:'';width: 142px;height: 188px;background: url(../images/menu-2.png) no-repeat center;position: absolute;left: 0;top: -49px;z-index: 3;}
+div.box-form .ten{font-size: 66px;font-family: 'svn-lo';color: #fff;text-align: center;line-height: 46px;}
+div.box-form .slogan{color: #fff;text-align: center;font-family: 'nu-r';font-size: 16px;text-transform: uppercase;margin-bottom: 0;}
+div.box-form .form-contact{
+    width: 100%;
+    text-align: center;
+}
+div.box-form input::-webkit-input-placeholder{color:#fff;}
+div.box-form input:-moz-placeholder{color:#fff;}
+div.box-form input::-moz-placeholder{color:#fff;}
+div.box-form input:-ms-input-placeholder{color:#fff;}
+div.box-form textarea::-webkit-input-placeholder{color:#fff;}
+div.box-form textarea:-moz-placeholder{color:#fff;}
+div.box-form textarea::-moz-placeholder{color:#fff;}
+div.box-form textarea:-ms-input-placeholder{color:#fff;}
+div.box-form .input-contact{}
+div.box-form .input-contact input{
+    background: rgb(255 255 255 / 14%);
+    border: none;
+    border-radius: 0;
+    height: 47px;
+    color: #fff;
+}
+div.box-form .input-contact textarea{
+    background: rgb(255 255 255 / 14%);
+    border: none;
+    border-radius: 0;
+    color: #fff;
+}
+div.box-form .btn{
+    background: #ed1c24;
+    padding: 10px 20px ;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+
+div.box-form div.lh-1 input{
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    background: rgb(255 255 255 / 14%) url(../images/lh-1.png) no-repeat 10px center;
+}
+div.box-form div.lh-2 input{
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    background: rgb(255 255 255 / 14%) url(../images/lh-2.png) no-repeat 10px center;
+}
+div.box-form div.lh-3 input{
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    background: rgb(255 255 255 / 14%) url(../images/lh-3.png) no-repeat 10px center;
+}
+div.box-form div.lh-4 input{
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    background: rgb(255 255 255 / 14%) url(../images/lh-4.png) no-repeat 10px center;
+}
+div.box-form div.lh-5 textarea{
+    height: 111px;
+    border-radius: 20px;
+    padding-left: 35px;
+    background: rgb(255 255 255 / 14%) url(../images/lh-5.png) no-repeat 10px 6px;
+}
+
+------------ form
+<div class="box-form">
+	<div class="wap_1200">
+		<div class="ten">đăng ký làm đại lý</div>
+		<div class="slogan">liên hệ ngay để được nhận chính sách ưu đãi nhất</div>
+		<form class="form-contact validation-newsletter" novalidate method="post" action="" enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-contact col-sm-6">
+                    <input type="text" class="form-control" id="ten-newsletter" name="dataNewsletter[ten]" placeholder="<?=hoten?>" required />
+                    <div class="invalid-feedback"><?=vuilongnhaphoten?></div>
+                </div>                
+                <div class="input-contact col-sm-6">
+                    <input type="email" class="form-control" id="email-newsletter" name="dataNewsletter[email]" placeholder="Email" required />
+                    <div class="invalid-feedback"><?=vuilongnhapdiachiemail?></div>
+                </div>      
+            </div>
+            <div class="row">
+            	<div class="input-contact col-sm-6">
+                    <input type="number" class="form-control" id="dienthoai-newsletter" name="dataNewsletter[dienthoai]" placeholder="<?=sodienthoai?>" required />
+                    <div class="invalid-feedback"><?=vuilongnhapsodienthoai?></div>
+                </div>   
+                <div class="input-contact col-sm-6">
+                    <input type="text" class="form-control" id="diachi-newsletter" name="dataNewsletter[diachi]" placeholder="<?=diachi?>"  />
+                    <div class="invalid-feedback"><?=vuilongnhapdiachi?></div>
+                </div>                
+            </div>            
+            <div class="input-contact">
+                <textarea class="form-control" id="noidung-newsletter" name="dataNewsletter[noidung]" placeholder="<?=noidung?>"  /></textarea>
+                <div class="invalid-feedback"><?=vuilongnhapnoidung?></div>
+            </div>           
+            <input type="submit" class="btn btn-primary" name="submit-newsletter" value="Đăng ký" disabled />
+            <input type="hidden" name="recaptcha_response_newsletter" id="recaptchaResponseNewsletter">
+        </form>
+	</div>
+</div>

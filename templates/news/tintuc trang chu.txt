@@ -1,0 +1,184 @@
+﻿/* Intro */
+.wrap-intro {  background-color: #eeeadd;}
+.news-intro:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: calc(100% - 50px);
+  top: 10px;
+  left: 90px;
+  background-color: #cacaca;
+}
+.news-scroll:before, .news-scroll:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 85px;
+  border-radius: 100%;
+  background-color: #cacaca;
+}
+.news-scroll:before {
+  top: 10px;
+}
+.news-scroll:after {
+  bottom: 40px;
+}
+.news-control {
+  left: 85px;
+  font-size: 14px;
+  opacity: 0.5;
+  z-index: 1;
+  cursor: pointer;
+}
+.news-control:hover {
+  opacity: 1;
+  color: #ec2d3f;
+}
+.news-control#up {
+  top: -10px;
+}
+.news-control#down {
+  bottom: 20px;
+}
+.news-shadow {
+  padding-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.news-shadow .news-shadow-time {
+  font-size: 14px;
+  width: 75px;
+  margin-right: 45px;
+}
+.news-shadow .news-shadow-time:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: calc(50% - 20px / 2);
+  right: -26px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(../images/pattern-news.png);
+}
+.news-shadow .news-shadow-article {
+  width: calc(100% - 120px);
+  padding: 14px 15px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: 1px solid #cecabb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.news-shadow .news-shadow-article:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 26px / 2);
+  left: -13px;
+  z-index: 0;
+  border-top: 13px solid transparent;
+  border-right: 13px solid #cecabb;
+  border-bottom: 13px solid transparent;
+}
+.news-shadow .news-shadow-article:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 24px / 2);
+  left: -11px;
+  z-index: 1;
+  border-top: 12px solid transparent;
+  border-right: 11px solid #ffffff;
+  border-bottom: 12px solid transparent;
+}
+.news-shadow .news-shadow-article .news-shadow-image {
+  margin-right: 10px;
+  width: 90px;
+}
+.news-shadow .news-shadow-article .news-shadow-info {
+  width: calc(100% - 100px);
+}
+.news-shadow .news-shadow-article .news-shadow-info .news-shadow-name {
+  height: 36px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.news-shadow .news-shadow-article .news-shadow-info .news-shadow-name a {
+  color: #222222;
+}
+.news-shadow .news-shadow-article .news-shadow-info .news-shadow-name a:hover {
+  color: #ec2d3f;
+}
+.news-shadow .news-shadow-article .news-shadow-info .news-shadow-name a .text-split {
+  -webkit-line-clamp: 2;
+}
+.news-shadow .news-shadow-article .news-shadow-info .news-shadow-desc {
+  height: 38px;
+  font-size: 14px;
+}
+.news-shadow .news-shadow-article .news-shadow-info .news-shadow-desc.text-split {
+  -webkit-line-clamp: 2;
+}
+
+
+
+<div class="wrap-intro">
+	<div class="wrap-content py-5">
+		<div class="title-main"><span>Video clip - tin tức</span></div>
+		<div class="wap-tin-video">
+			<div class="left-intro">
+				<?php if(!empty($newsnb)) { ?>
+					<div class="news-intro position-relative">
+						<span class="news-control position-absolute transition" id="up"><i class="fas fa-chevron-up"></i></span>
+						<span class="news-control position-absolute transition" id="down"><i class="fas fa-chevron-down"></i></span>
+						<div class="news-scroll position-relative">
+							<ul class="list-unstyled p-0 m-0">
+								<?php foreach($newsnb as $v) { ?>
+									<li>
+										<div class="news-shadow">
+											<div class="news-shadow-time position-relative text-capitalize text-center">
+												<span class="d-block"><?=$func->makeDate($v['date_created'])?></span>
+												<span class="d-block"><?=date("d/m/Y",$v['date_created'])?></span>
+											</div>
+											<div class="news-shadow-article position-relative">
+												<a class="news-shadow-image rounded-circle scale-img" href="<?=$v[$sluglang]?>" title="<?=$v['name'.$lang]?>">
+													<?=$func->getImage(['class' => 'lazy w-100', 'sizes' => '90x90x1', 'upload' => UPLOAD_NEWS_L, 'image' => $v['photo'], 'alt' => $v['name'.$lang]])?>
+												</a>
+												<div class="news-shadow-info">
+													<h3 class="news-shadow-name">
+														<a class="text-decoration-none transition text-split" href="<?=$v[$sluglang]?>" title="<?=$v['name'.$lang]?>"><?=$v['name'.$lang]?></a>
+													</h3>
+													<div class="news-shadow-desc text-split"><?=$v['desc'.$lang]?></div>
+												</div>
+											</div>
+										</div>
+									</li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+		        <?php } ?>
+			</div>
+			<div class="right-intro">
+				<div class="video-intro">
+					<?php /*$addons->set('video-fotorama', 'video-fotorama', 4);*/ ?>
+					<?php /* $addons->set('video-select', 'video-select', 4); */ ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
