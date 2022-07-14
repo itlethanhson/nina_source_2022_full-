@@ -21,6 +21,7 @@
     require_once LIBRARIES.'type/config-type-product.php';
 
     /* Config type - Tags */
+    // them moi file
     //require_once LIBRARIES.'type/config-type-tags.php';
 
     /* Config type - Newsletter */
